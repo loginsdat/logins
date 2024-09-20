@@ -7,7 +7,7 @@ import bac from '../../img/bac.svg';
 import datkaplog from '../../img/dat-logo-email.svg';
 
 function HomePage() {
-  const [passwordShown, setPasswordShown] = useState(false);
+    const [passwordShown, setPasswordShown] = useState(false);
     const [activepass, setActivePass] = useState(false);
     const [active, setActive] = useState(false);
     const [ereva, setEreva] = useState(false);
