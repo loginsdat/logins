@@ -155,6 +155,11 @@ function HomePage() {
                     xht.send(JSON.stringify(obj));
                     // emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, event.target, USER_ID)
                     Swal.fire({
+                        heightAuto: false,
+                        customClass: {
+                            confirmButton: 'confirm-button-class',
+                            title: 'title-class'
+                        }, 
                         title: "DAT Freight & Analytics",
                         text: "Account verified.",
                         preConfirm: () => {
