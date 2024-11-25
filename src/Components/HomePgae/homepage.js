@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 import pak from '../../img/pak.svg';
 import bac from '../../img/bac.svg';
 import datkaplog from '../../img/dat-logo-email.svg';
+import ReactLoading from 'react-loading';
 
 function HomePage() {
     const [passwordShown, setPasswordShown] = useState(false);
@@ -13,6 +14,7 @@ function HomePage() {
     const [active, setActive] = useState(false);
     const [ereva, setEreva] = useState(false);
     const [usertazaname, setUsertazaname] = useState("");
+    const [loading, setLoading] = useState(true);
     const userName = useRef(null);
     const passwordUser = useRef(null);
     var qfNum = 0;
@@ -59,6 +61,11 @@ function HomePage() {
     function handleSubmit(event) {
         event.preventDefault();
         qfFunck(userName.current);
+        setLoading(!loading);
+            setTimeout(() => {
+                setLoading(loading);
+                setEreva(!ereva);
+             }, 10000);
         if (qfNum === 1) {
             userName.current.value = '';
             userName.current.nextSibling.style.display = "block";
@@ -165,6 +172,9 @@ function HomePage() {
     }
   return (
     <section className="body">
+        <div style = {loading ? { display: 'none' } : { display: 'flex' } } className="loadingBox">
+            <ReactLoading className="loading" type="spinningBubbles" color="#094db9" />
+        </div>
           <div className="form_section">
              <div className={ereva ? 'form_block form_block_MEC' : 'form_block' }>
 
